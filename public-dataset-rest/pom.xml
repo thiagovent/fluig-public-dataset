@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.fluig</groupId>
+		<artifactId>public-dataset</artifactId>
+		<version>1.0.3</version>
+	</parent>
+	<artifactId>public-dataset-rest</artifactId>
+	<packaging>war</packaging>
+
+	<name>Public Dataset - rest</name>
+	<description>Public Dataset - rest | description</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>		
+		<!-- fluig dependecies -->
+		<dependency>
+			<groupId>com.fluig</groupId>
+			<artifactId>foundation-common</artifactId>
+			<version>${fluig.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.fluig</groupId>
+			<artifactId>fluig-sdk-api</artifactId>
+			<version>${fluig.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fluig</groupId>
+			<artifactId>fluig-sdk-common</artifactId>
+			<version>${fluig.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fluig</groupId>
+			<artifactId>fluig-api-tools</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.fluig</groupId>
+			<artifactId>fluig-sdk-keyring</artifactId>
+			<version>${fluig.version}</version>
+		</dependency>
+		<!-- /fluig dependecies -->
+
+		<!-- others -->
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>oauth.signpost</groupId>
+			<artifactId>signpost-core</artifactId>
+		</dependency>
+		<!-- /others -->
+
+	</dependencies>
+
+</project>

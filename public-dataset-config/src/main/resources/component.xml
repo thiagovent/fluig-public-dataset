@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component code="public_dataset_app">
+	<title>Public Dataset</title>
+	<description>Public Dataset</description>
+	<version>1.0.0</version>
+	<category>Store</category>
+	<icon>icon.png</icon>
+	<developerCode>Thiago</developerCode>
+	<developerName>Thiago</developerName>
+	<developerURL>https://www.linkedin.com/in/thiagoventurelli/</developerURL>
+	<activationClass>activator/publicdataset</activationClass>
+</component>

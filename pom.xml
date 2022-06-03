@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.fluig</groupId>
+	<artifactId>public-dataset</artifactId>
+	<version>1.0.3</version>
+	<packaging>pom</packaging>
+
+	<name>Public Dataset</name>
+	<description>Public Dataset description</description>
+
+	<repositories>
+		<repository>
+			<id>nexus</id>
+			<name>fluig Nexus Repository</name>
+			<url>http://nexus.fluig.com/content/groups/public</url>
+		</repository>
+	</repositories>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<fluig.version>1.7.1</fluig.version>
+	</properties>
+
+	<modules>
+		<module>public-dataset-config</module>
+		<module>public-dataset-rest</module>
+		<module>public-dataset-pack</module>
+	</modules>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>javax</groupId>
+				<artifactId>javaee-api</artifactId>
+				<version>8.0</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.fluig</groupId>
+				<artifactId>fluig-api-tools</artifactId>
+				<version>1.1.0</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>oauth.signpost</groupId>
+				<artifactId>signpost-core</artifactId>
+				<version>2.1.1</version>
+			</dependency>
+			<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>1.18.8</version>
+				<scope>provided</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.3.1</version>
+				<configuration>
+					<warSourceExcludes>**/.js,**/.css</warSourceExcludes>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+					<archive>
+						<manifestEntries>
+							<Dependencies>com.fluig.common</Dependencies>
+						</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>net.alchim31.maven</groupId>
+				<artifactId>yuicompressor-maven-plugin</artifactId>
+				<version>1.5.1</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>compress</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<nosuffix>true</nosuffix>
+					<force>true</force>
+					<linebreakpos>-1</linebreakpos>
+					<disableOptimizations>false</disableOptimizations>
+					<gzip>false</gzip>
+					<jswarn>false</jswarn>
+					<nomunge>true</nomunge>
+					<preserveAllSemiColons>false</preserveAllSemiColons>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.2</version>
+				<configuration>
+					<source>11</source>
+					<target>11</target>
+				</configuration>
+			</plugin>
+		</plugins>
+		<finalName>${project.artifactId}</finalName>
+	</build>
+
+</project>

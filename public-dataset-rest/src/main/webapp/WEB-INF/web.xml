@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0">
+
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+
+    <filter>
+        <filter-name>FluigLoggingFilter</filter-name>
+        <filter-class>com.totvs.technology.foundation.common.FluigLoggingFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>FluigLoggingFilter</filter-name>
+        <url-pattern>/api/v1/app/*</url-pattern>
+        <url-pattern>/api/v1/category/*</url-pattern>
+    </filter-mapping>
+
+    <security-constraint>
+        <display-name>SampleRest API v1</display-name>
+        <web-resource-collection>
+            <web-resource-name>SampleRest API v1</web-resource-name>
+            <description>SampleRest API v1</description>
+            <url-pattern>/api/v1/app/*</url-pattern>
+            <url-pattern>/api/v1/category/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <description>API v1</description>
+            <role-name>user</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <security-role>
+        <role-name>totvstech</role-name>
+    </security-role>
+    <security-role>
+        <role-name>user</role-name>
+    </security-role>
+    <security-role>
+        <role-name>sysadmin</role-name>
+    </security-role>
+    
+</web-app>
